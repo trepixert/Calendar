@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import java.util.Date;
 
 @Data
@@ -16,7 +17,8 @@ import java.util.Date;
 @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
 public class Event {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "event_id_seq", sequenceName = "event_id_seq", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "event_id_seq")
     private Long id;
 
     private String title;
