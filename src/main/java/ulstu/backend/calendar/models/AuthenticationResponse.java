@@ -7,6 +7,6 @@ import java.io.Serializable;
 
 @Getter
 @AllArgsConstructor
-public class JwtResponse implements Serializable {
+public class AuthenticationResponse implements Serializable {
     private final String jwtToken;
 }

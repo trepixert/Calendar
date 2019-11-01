@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class JwtRequest implements Serializable {
+public class AuthenticationRequest implements Serializable {
     private String username;
     private String password;
 }

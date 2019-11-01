@@ -1,8 +1,10 @@
 package ulstu.backend.calendar.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
@@ -15,6 +17,8 @@ import java.util.Date;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
 @Builder
 public class Event {
