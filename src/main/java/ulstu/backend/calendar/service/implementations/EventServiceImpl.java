@@ -25,7 +25,14 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public void save(Event event) {
-        eventRepo.save(event);
+    public void save(EventDTO event) {
+        Event newEvent =
+                Event.builder()
+                        .title(event.getTitle())
+                        .description(event.getDescription())
+                        .start(event.getStart())
+                        .finish(event.getEnd())
+                        .build();
+        eventRepo.save(newEvent);
     }
 }

@@ -1,7 +1,10 @@
 package ulstu.backend.calendar.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
@@ -10,13 +13,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "event")
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
+@Builder
 public class Event {
     @Id
     @SequenceGenerator(name = "event_id_seq", sequenceName = "event_id_seq", allocationSize = 1, initialValue = 1)

@@ -25,7 +25,7 @@ public class EventRestController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<String> create(@RequestBody Event event){
+    public ResponseEntity<String> create(@RequestBody EventDTO event){
         eventService.save(event);
         return ResponseEntity.ok("Saved");
     }

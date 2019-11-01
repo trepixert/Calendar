@@ -1,13 +1,11 @@
 package ulstu.backend.calendar.service;
 
-import org.springframework.stereotype.Service;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import ulstu.backend.calendar.dto.UserDTO;
-import ulstu.backend.calendar.models.User;
 
 import java.util.List;
 
-@Service
-public interface UserService {
+public interface UserService extends UserDetailsService {
     List<UserDTO> findAll();
-    void save(User user);
+    void save(UserDTO user);
 }

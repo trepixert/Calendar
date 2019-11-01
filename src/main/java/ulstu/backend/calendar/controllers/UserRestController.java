@@ -24,7 +24,7 @@ public class UserRestController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<String> create(@RequestBody User user){
+    public ResponseEntity<String> create(@RequestBody UserDTO user){
         userService.save(user);
         return ResponseEntity.ok("Saved");
     }
