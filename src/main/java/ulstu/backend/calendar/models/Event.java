@@ -10,10 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Data
 @Entity
+@Table(name = "event")
 @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
 public class Event {
     @Id
