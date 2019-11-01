@@ -1,5 +1,6 @@
 package ulstu.backend.calendar.models;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Builder
 public class User {
     @Id
     @SequenceGenerator(name = "user_id_seq", sequenceName = "user_id_seq", allocationSize = 1, initialValue = 1)

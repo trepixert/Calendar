@@ -29,7 +29,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(User user) {
-        userRepo.save(user);
+    public void save(UserDTO user) {
+        User newUser =
+                User.builder()
+                        .username(user.getUsername())
+                        .password(user.getPassword())
+                        .build();
+        userRepo.save(newUser);
     }
 }

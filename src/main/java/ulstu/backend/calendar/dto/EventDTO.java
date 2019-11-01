@@ -2,7 +2,6 @@ package ulstu.backend.calendar.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 
 import java.util.Date;
 
