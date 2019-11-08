@@ -14,16 +14,15 @@ import ulstu.backend.calendar.service.UserService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
 public class UserRestController {
     @Autowired
     private UserService userService;
-    @GetMapping
+    @GetMapping("/users")
     public List<UserDTO> getUsers(){
         return userService.findAll();
     }
 
-    @PostMapping("/create")
+    @PostMapping("/registration")
     public ResponseEntity<String> create(@RequestBody UserDTO user){
         userService.save(user);
         return ResponseEntity.ok("Saved");
