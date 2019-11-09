@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ulstu.backend.calendar.dto.EventDTO;
-import ulstu.backend.calendar.models.Event;
 import ulstu.backend.calendar.service.EventService;
 
 import java.util.List;
@@ -20,12 +19,12 @@ public class EventRestController {
     private EventService eventService;
 
     @GetMapping
-    public List<EventDTO> getAllEvents(){
+    public List<EventDTO> getAllEvents() {
         return eventService.findAll();
     }
 
     @PostMapping("/create")
-    public ResponseEntity<String> create(@RequestBody EventDTO event){
+    public ResponseEntity<String> create(@RequestBody EventDTO event) {
         eventService.save(event);
         return ResponseEntity.ok("Saved");
     }
