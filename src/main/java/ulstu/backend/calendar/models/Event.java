@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,8 +29,6 @@ public class Event {
     private Long id;
 
     private String title;
-
-    private String description;
 
     @DateTimeFormat(pattern = "dd.MM.yyyy HH:mm")
     private Date start;

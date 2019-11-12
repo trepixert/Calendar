@@ -10,7 +10,6 @@ import java.util.Date;
 public class EventDTO {
     private Long id;
     private String title;
-    private String description;
     private Date start;
     private Date end;
 }

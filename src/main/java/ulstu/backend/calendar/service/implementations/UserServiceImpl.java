@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
                 .stream()
                 .map(user -> new UserDTO(user.getUsername(),
                         user.getEvents().stream()
-                                .map(event -> new EventDTO(event.getId(), event.getTitle(), event.getDescription(),
+                                .map(event -> new EventDTO(event.getId(), event.getTitle(),
                                         event.getStart(), event.getFinish()))
                                 .collect(Collectors.toList())))
                 .collect(Collectors.toList());
