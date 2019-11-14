@@ -24,5 +24,5 @@ public class File {
     private String filename;
 
     @ManyToOne
-    private User user;
+    private Event event;
 }

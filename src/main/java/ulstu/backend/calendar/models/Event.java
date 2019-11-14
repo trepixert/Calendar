@@ -13,8 +13,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -38,4 +40,7 @@ public class Event {
 
     @ManyToOne
     private User user;
+
+    @OneToMany(mappedBy = "event")
+    private List<File> files;
 }

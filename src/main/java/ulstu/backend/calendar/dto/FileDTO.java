@@ -8,4 +8,5 @@ import lombok.Data;
 public class FileDTO {
     private String url;
     private String filename;
+    private Long eventId;
 }

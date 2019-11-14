@@ -35,13 +35,6 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Event> events;
 
-    @OneToMany(mappedBy = "user")
-    private List<File> files;
-
-    public void addFile(File file){
-        this.files.add(file);
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
