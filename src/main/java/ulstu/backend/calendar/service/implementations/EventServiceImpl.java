@@ -55,4 +55,12 @@ public class EventServiceImpl implements EventService {
                 .map(event -> new EventDTO(event.getId(), event.getTitle(), event.getStart(), event.getFinish()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<EventDTO> findByTitleContainingIgnoreCaseAndUser(String title, User user) {
+        return eventRepo.findByTitleContainingIgnoreCaseAndUser(title, user)
+                .stream()
+                .map(event -> new EventDTO(event.getId(), event.getTitle(), event.getStart(), event.getFinish()))
+                .collect(Collectors.toList());
+    }
 }

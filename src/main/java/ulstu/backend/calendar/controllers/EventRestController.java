@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ulstu.backend.calendar.dto.EventDTO;
 import ulstu.backend.calendar.models.User;
@@ -34,8 +35,13 @@ public class EventRestController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id, @AuthenticationPrincipal User user){
-        eventService.delete(id,user);
+    public ResponseEntity<String> delete(@PathVariable Long id, @AuthenticationPrincipal User user) {
+        eventService.delete(id, user);
         return ResponseEntity.ok("Deleted");
+    }
+
+    @GetMapping("/search")
+    public List<EventDTO> searchByTitle(@RequestParam("title") String title, @AuthenticationPrincipal User user) {
+        return eventService.findByTitleContainingIgnoreCaseAndUser(title, user);
     }
 }

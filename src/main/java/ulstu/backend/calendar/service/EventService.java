@@ -15,4 +15,6 @@ public interface EventService {
     void delete(Long id, User user);
 
     List<EventDTO> findAllByUser(User user);
+
+    List<EventDTO> findByTitleContainingIgnoreCaseAndUser(String title, User user);
 }
