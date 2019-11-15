@@ -2,13 +2,13 @@ package ulstu.backend.calendar.controllers;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import ulstu.backend.calendar.models.VkGroup;
 
-@RestController
+@Controller
 @RequestMapping("/vk")
 public class WebHookRestController {
     @Value("${vk.webhook.type}")
