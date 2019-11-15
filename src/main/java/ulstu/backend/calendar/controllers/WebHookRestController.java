@@ -19,10 +19,10 @@ public class WebHookRestController {
     private String response;
 
     @PostMapping("/callback")
-    public ResponseEntity<String> checkToConfirmation(@RequestBody VkGroup vkGroup) {
+    public String checkToConfirmation(@RequestBody VkGroup vkGroup) {
         if(type.equals(vkGroup.getType()) && (group_id.equals(vkGroup.getGroup_id()))){
-            return ResponseEntity.ok(response);
+            return response;
         }
-        return ResponseEntity.badRequest().body("Bad request");
+        return "Bad request";
     }
 }
