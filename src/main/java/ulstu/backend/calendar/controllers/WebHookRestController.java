@@ -23,6 +23,7 @@ public class WebHookRestController {
         if(type.equals(vkGroup.getType()) && (group_id.equals(vkGroup.getGroup_id()))){
             return ResponseEntity.ok(response);
         }
+
         return ResponseEntity.badRequest().body("Bad request");
     }
 }

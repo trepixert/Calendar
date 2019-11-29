@@ -27,6 +27,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'com.github.ulisesbocchio:jasypt-spring-boot:2.1.2'
+    implementation 'com.vk.api:sdk:0.5.12'
 
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
     implementation 'com.dropbox.core:dropbox-core-sdk:3.1.1'
