@@ -16,11 +16,14 @@ import ulstu.backend.calendar.service.UserService;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private JwtRequestFilter jwtRequestFilter;
+    private final JwtRequestFilter jwtRequestFilter;
 
-    @Autowired
-    private UserService userDetailService;
+    private final UserService userDetailService;
+
+    public WebSecurityConfig(JwtRequestFilter jwtRequestFilter, UserService userDetailService) {
+        this.jwtRequestFilter = jwtRequestFilter;
+        this.userDetailService = userDetailService;
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
