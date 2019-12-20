@@ -46,7 +46,7 @@ public class DropboxRequestConfig {
 
     @Bean
     public WebSocketClient webSocketClient() {
-        return new SockJsClient(Collections.singletonList(new WebSocketTransport(new StandardWebSocketClient())));
+        return new StandardWebSocketClient();
     }
 
     @Bean
