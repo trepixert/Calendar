@@ -54,7 +54,7 @@ public class DropboxWebhookRestController {
         log.info("Receive a list of changed user IDs from Dropbox and process each: '{}'", notificationBody);
         log.info("URL to WebSocket is: "+ this.url);
         StompSessionHandler sessionHandler = new CustmStompSessionHandler();
-        StompSession stompSession = stompClient.connect(String.valueOf(new URI(url)),
+        StompSession stompSession = stompClient.connect(String.valueOf(URI.create(url)),
                 sessionHandler).get();
         stompSession.send("/app/file-changed",  notificationBody);
     }
