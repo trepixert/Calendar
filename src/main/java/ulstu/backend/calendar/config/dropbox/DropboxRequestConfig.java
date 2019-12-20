@@ -6,6 +6,7 @@ import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.converter.StringMessageConverter;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
@@ -53,7 +54,7 @@ public class DropboxRequestConfig {
         WebSocketStompClient webSocketStompClient = new WebSocketStompClient(webSocketClient());
         webSocketStompClient.setTaskScheduler(taskScheduler);
         webSocketStompClient.setReceiptTimeLimit(5000);
-        webSocketStompClient.setMessageConverter(new StringMessageConverter());
+        webSocketStompClient.setMessageConverter(new MappingJackson2MessageConverter());
         return webSocketStompClient;
     }
 
