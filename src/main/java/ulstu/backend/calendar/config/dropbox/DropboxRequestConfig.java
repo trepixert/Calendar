@@ -6,19 +6,19 @@ import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
-import org.springframework.messaging.converter.StringMessageConverter;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
 import org.springframework.web.socket.client.WebSocketClient;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
 import org.springframework.web.socket.sockjs.client.SockJsClient;
-import org.springframework.web.socket.sockjs.client.Transport;
 import org.springframework.web.socket.sockjs.client.WebSocketTransport;
 
 import javax.annotation.PostConstruct;
 import java.util.Collections;
+import java.util.concurrent.Executor;
 
 @Configuration
 @EnableEncryptableProperties
@@ -34,13 +34,13 @@ public class DropboxRequestConfig {
     private String clientIdentifier;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         config = DbxRequestConfig.newBuilder(clientIdentifier).withUserLocale(null).build();
         client = new DbxClientV2(config, ACCESS_TOKEN);
     }
 
     @Bean
-    public DbxClientV2 getClient(){
+    public DbxClientV2 getClient() {
         return client;
     }
 
@@ -61,5 +61,10 @@ public class DropboxRequestConfig {
     @Bean
     public TaskScheduler taskScheduler() {
         return new ConcurrentTaskScheduler();
+    }
+
+    @Bean
+    public Executor taskExecutor() {
+        return new SimpleAsyncTaskExecutor();
     }
 }

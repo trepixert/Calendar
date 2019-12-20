@@ -2,7 +2,6 @@ package ulstu.backend.calendar.config.dropbox.webhook.controller;
 
 import com.dropbox.core.v2.DbxClientV2;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.simp.stomp.StompSession;
 import org.springframework.messaging.simp.stomp.StompSessionHandler;
@@ -14,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
 import ulstu.backend.calendar.config.dropbox.webhook.service.DeltaUsersParserService;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/dropbox/webhook")
@@ -53,7 +54,7 @@ public class DropboxWebhookRestController {
         log.info("Receive a list of changed user IDs from Dropbox and process each: '{}'", notificationBody);
         log.info("URL to WebSocket is: "+ this.url);
         StompSessionHandler sessionHandler = new CustmStompSessionHandler();
-        StompSession stompSession = stompClient.connect(url,
+        StompSession stompSession = stompClient.connect(String.valueOf(new URI(url)),
                 sessionHandler).get();
         stompSession.send("/app/file-changed",  notificationBody);
     }
