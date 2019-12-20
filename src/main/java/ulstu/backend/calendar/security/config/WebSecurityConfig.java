@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .cors()
                 .and()
-                .authorizeRequests().antMatchers("/registration", "/authenticate").permitAll()
+                .authorizeRequests().antMatchers("/registration", "/authenticate", "/dropbox/webhook/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling()
