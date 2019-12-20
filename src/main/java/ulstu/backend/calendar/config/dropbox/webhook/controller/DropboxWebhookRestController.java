@@ -51,6 +51,7 @@ public class DropboxWebhookRestController {
     @PostMapping
     public void getFileData(@RequestBody final String notificationBody) throws Exception {
         log.info("Receive a list of changed user IDs from Dropbox and process each: '{}'", notificationBody);
+        log.info("URL to WebSocket is: "+ this.url);
         StompSessionHandler sessionHandler = new CustmStompSessionHandler();
         StompSession stompSession = stompClient.connect(url,
                 sessionHandler).get();
